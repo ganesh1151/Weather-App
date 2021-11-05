@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+</head>
+
+<body>
+    {{>navbar}}
+    <!-- main header  -->
+    <div class="containter-fluid w_main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+
+                <div class="main_content">
+                    <form action="" class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter Your city name" autocomplete="off"></br>
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                </div>
+
+                <div class="tempInformation">
+                    <div class="top_layer">
+                        <span id="day">Sunday</span>
+                        <span id="today_date">31 OCT</span>
+                    </div>
+
+                    <div class="main_layer">
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middle_layer data_hide">
+                            <span id="temp"><span id="temp_real_val">0</span><sup>o</sup>C</span>
+                            <span id="temp_status"><i class="fa fa-cloud"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- <div class="Quote">
+                    <div class="">
+                        <div id="quotes"></div>
+                        <div id="author"></div>
+                        <button id="newQ" onclick="getNewQuotes()">new Quotes</button>
+                        <button id="share" onclick="shareNow()">Share to</button>
+                    </div>
+                </div> --}}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- footer code  -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+
+    <script>
+
+        let d = new Date();
+
+        //getting day
+        const weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+
+        let days = weekday[d.getDay()];
+        document.getElementById("day").innerHTML = days;
+
+
+        //getting month
+
+        const months = new Array(12);
+        months[0] = "Jan";
+        months[1] = "Feb";
+        months[2] = "Mar";
+        months[3] = "Apr";
+        months[4] = "May";
+        months[5] = "Jun";
+        months[6] = "Jul";
+        months[7] = "Aug";
+        months[8] = "Sep";
+        months[9] = "Oct";
+        months[10] = "Nov";
+        months[11] = "Dec";
+
+
+
+        let dd = String(d.getDate()).padStart(2, '0');
+        let mm = String(d.getMonth()).padStart(2, '0'); //Jan is 0!
+
+        document.getElementById("today_date").innerHTML = `${dd} ${months[mm]}`;
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
